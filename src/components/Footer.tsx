@@ -18,7 +18,7 @@ const Footer = () => {
             <div className="flex items-center space-x-3 space-x-reverse">
               <div className="relative">
                 <img 
-                  src="/images/image.webp" 
+                  src="/images/image.png" 
                   alt="شركة الأمان للنقل - لوجو" 
                   className="w-12 h-12 object-contain bg-white rounded-xl p-2 shadow-lg"
                 />

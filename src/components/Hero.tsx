@@ -84,7 +84,7 @@ const Hero = () => {
             {/* Floating Elements */}
             <div className="absolute -top-4 -right-4 bg-white p-4 rounded-2xl shadow-xl border-2 border-emerald-100">
               <img
-                src="/images/image.webp"
+                src="/images/image.png"
                 alt="شركة الأمان للنقل - لوجو"
                 className="w-12 h-12 object-contain"
               />
