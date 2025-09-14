@@ -21,7 +21,8 @@ const Header = () => {
             <img 
               src="/images/image.png" 
               alt="شركة الأمان للنقل - لوجو شركة نقل عفش بالرياض" 
-              className="w-12 h-12 object-contain"
+              className="w-12 h-12 object-contain rounded-lg"
+
             />
             <div>
               <h1 className="text-2xl font-bold text-emerald-800">الأمان للنقل</h1>

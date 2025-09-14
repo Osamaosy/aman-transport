@@ -1,22 +1,22 @@
 const Gallery = () => {
   const galleryItems = [
     {
-      image: "/images/f02f7174-bf7f-4fd6-b924-b43db75f3a60.jpeg",
+      image: "/images/image2.webp",
       caption: "نقل آمن ومضمون",
       description: "فريق الأمان للنقل يضمن وصول عفشك بأمان تام وفي أفضل حالة"
     },
     {
-      image: "/images/f94957af-a99d-4d74-b31c-e889f7dede61.jpeg",
+      image: "/images/image3.webp",
       caption: "تخزين محترف",
       description: "مستودعات حديثة ومجهزة بأحدث أنظمة الحماية والمراقبة"
     },
     {
-      image: "/images/pexels-photo-7464702.webp?auto=compress&cs=tinysrgb&w=800",
+      image: "/images/image1.webp?auto=compress&cs=tinysrgb&w=800",
       caption: "تعبئة وتغليف متخصص",
       description: "استخدام أفضل مواد التعبئة لضمان الحماية الكاملة للأثاث"
     },
     {
-      image: "/images/pexels-photo-7464226.webp?auto=compress&cs=tinysrgb&w=800",
+      image: "/images/image4.webp?auto=compress&cs=tinysrgb&w=800",
       caption: "فك وتركيب احترافي",
       description: "فنيون متخصصون في فك وتركيب جميع أنواع الأثاث والأجهزة"
     }

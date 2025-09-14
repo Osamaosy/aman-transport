@@ -73,7 +73,7 @@ const Hero = () => {
           <div className="relative">
             <div className="relative overflow-hidden rounded-3xl shadow-2xl border-4 border-white">
               <img
-                src="/images/Gemini_Generated_Image_5ftbtz5ftbtz5ftb.png"
+                src="/images/hero.webp"
                 alt="شركة الأمان للنقل - فريق محترف لنقل العفش والأثاث بالرياض"
                 className="w-full h-96 lg:h-[500px] object-cover"
                 loading="eager"
@@ -86,7 +86,7 @@ const Hero = () => {
               <img
                 src="/images/image.png"
                 alt="شركة الأمان للنقل - لوجو"
-                className="w-12 h-12 object-contain"
+                className="w-12 h-12 object-contain rounded-lg"
               />
             </div>
             
