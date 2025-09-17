@@ -93,7 +93,7 @@ const Contact = () => {
                 className="bg-white text-emerald-800 hover:bg-gray-100 px-8 py-4 rounded-xl font-black text-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center space-x-2 space-x-reverse"
               >
                 <Phone className="w-5 h-5" />
-                <span>اتصل الآن - 056-228-3774</span>
+                <span>اتصل الآن - 0562283774</span>
               </a>
               
               <a
