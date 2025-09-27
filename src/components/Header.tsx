@@ -42,7 +42,7 @@ const Header = () => {
           {/* Phone Number */}
           <div className="hidden md:flex items-center space-x-2 space-x-reverse">
             <Phone className="w-5 h-5 text-emerald-600" />
-            <a href="tel:+966562283774" className="text-emerald-600 font-semibold hover:text-emerald-800 transition-colors">
+            <a id="call_button" href="tel:+966562283774" className="text-emerald-600 font-semibold hover:text-emerald-800 transition-colors">
               056-228-3774
             </a>
           </div>

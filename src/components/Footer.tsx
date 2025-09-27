@@ -70,11 +70,11 @@ const Footer = () => {
               <div className="flex items-start space-x-3 space-x-reverse p-3 rounded-lg bg-gray-800/50 border border-gray-700/50 hover:border-emerald-500/50 transition-all duration-300">
                 <Phone className="w-5 h-5 text-emerald-400 mt-1 flex-shrink-0" />
                 <div>
-                  <div className="text-sm text-gray-400 mb-1">خدمة العملاء:</div>
+                  <div id="call_button" className="text-sm text-gray-400 mb-1">خدمة العملاء:</div>
                   <a href="tel:+966562283774" className="text-gray-300 hover:text-emerald-400 transition-colors font-medium">
                     056-228-3774
                   </a>
-                  <div className="text-sm text-amber-400 mt-3 mb-1">الشكاوي:</div>
+                  <div id="call_button" className="text-sm text-amber-400 mt-3 mb-1">الشكاوي:</div>
                   <a href="tel:0544200405" className="text-gray-300 hover:text-amber-400 transition-colors font-medium">
                     054-420-0405
                   </a>

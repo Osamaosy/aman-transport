@@ -57,6 +57,7 @@ const Contact = () => {
                   <div key={detailIndex}>
                     {info.type === 'phone' ? (
                       <a
+                        id="call_button"
                         href={`tel:${detail}`}
                         className={`font-bold transition-colors ${info.title.includes('الشكاوي') ? 'text-amber-600 hover:text-amber-800' : 'text-emerald-600 hover:text-emerald-800'}`}
                       >
@@ -89,6 +90,7 @@ const Contact = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
+                id="call_button"
                 href="tel:+966562283774"
                 className="bg-white text-emerald-800 hover:bg-gray-100 px-8 py-4 rounded-xl font-black text-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center space-x-2 space-x-reverse"
               >
@@ -97,6 +99,7 @@ const Contact = () => {
               </a>
               
               <a
+                id="whatsapp_button"
                 href="https://wa.me/+966562283774"
                 target="_blank"
                 rel="noopener noreferrer"

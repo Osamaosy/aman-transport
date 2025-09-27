@@ -69,6 +69,7 @@ const Services = () => {
             <p className="text-emerald-50 mb-5">تواصل مع شركة الأمان للنقل للحصول على استشارة مجانية وعرض سعر مخصص</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-2xl mx-auto">
               <a
+                id="call_button"
                 href="tel:+966562283774"
                 className="bg-white text-emerald-600 hover:bg-gray-50 px-6 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center justify-center space-x-2 space-x-reverse shadow-sm"
               >
@@ -77,6 +78,7 @@ const Services = () => {
               </a>
               
               <a
+                id="whatsapp_button"
                 href="https://wa.me/+966562283774"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -89,6 +91,7 @@ const Services = () => {
               </a>
               
               <a
+                id="call_button"
                 href="tel:0544200405"
                 className="bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center justify-center space-x-2 space-x-reverse shadow-sm"
               >
