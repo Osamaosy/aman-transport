@@ -1,25 +1,38 @@
-import { Phone, Mail, MapPin, Github, Linkedin, MessageCircle, Heart, Code, Sparkles } from 'lucide-react';
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Github,
+  Linkedin,
+  MessageCircle,
+  Heart,
+  Code,
+  Sparkles,
+} from "lucide-react";
 
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-emerald-900 to-gray-900 text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 25px 25px, rgba(5,150,105,0.3) 2px, transparent 0)`,
-          backgroundSize: '50px 50px'
-        }}></div>
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle at 25px 25px, rgba(5,150,105,0.3) 2px, transparent 0)`,
+            backgroundSize: "50px 50px",
+          }}
+        ></div>
       </div>
-      
+
       <div className="container mx-auto px-4 py-16 relative z-10">
         <div className="grid md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div className="space-y-6">
             <div className="flex items-center space-x-3 space-x-reverse">
               <div className="relative">
-                <img 
-                  src="/images/image.png" 
-                  alt="شركة الأمان للنقل - لوجو" 
+                <img
+                  src="/images/image.png"
+                  alt="شركة الأمان للنقل - لوجو"
                   className="w-12 h-12 object-contain bg-white rounded-xl p-2 shadow-lg"
                 />
                 <div className="absolute -top-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full animate-pulse"></div>
@@ -32,7 +45,8 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-gray-300 leading-relaxed">
-              شركة الأمان للنقل - الخيار الأول لنقل العفش والأثاث بالرياض. نضمن لك خدمة آمنة ومضمونة مع أعلى معايير الجودة والاحترافية.
+              شركة الأمان للنقل - الخيار الأول لنقل العفش والأثاث بالرياض. نضمن
+              لك خدمة آمنة ومضمونة مع أعلى معايير الجودة والاحترافية.
             </p>
           </div>
 
@@ -48,14 +62,16 @@ const Footer = () => {
                 { href: "#about", text: "من نحن" },
                 { href: "#services", text: "خدماتنا" },
                 { href: "#gallery", text: "أعمالنا" },
-                { href: "#contact", text: "اتصل بنا" }
+                { href: "#contact", text: "اتصل بنا" },
               ].map((link, index) => (
                 <li key={index}>
-                  <a 
-                    href={link.href} 
+                  <a
+                    href={link.href}
                     className="text-gray-300 hover:text-emerald-400 transition-all duration-300 hover:translate-x-2 inline-block group"
                   >
-                    <span className="group-hover:mr-2 transition-all duration-300">←</span>
+                    <span className="group-hover:mr-2 transition-all duration-300">
+                      ←
+                    </span>
                     {link.text}
                   </a>
                 </li>
@@ -70,24 +86,56 @@ const Footer = () => {
               <div className="flex items-start space-x-3 space-x-reverse p-3 rounded-lg bg-gray-800/50 border border-gray-700/50 hover:border-emerald-500/50 transition-all duration-300">
                 <Phone className="w-5 h-5 text-emerald-400 mt-1 flex-shrink-0" />
                 <div>
-                  <div id="call_button" className="text-sm text-gray-400 mb-1">خدمة العملاء:</div>
-                  <a href="tel:+966562283774" className="text-gray-300 hover:text-emerald-400 transition-colors font-medium">
+                  <div id="call_button" className="text-sm text-gray-400 mb-1">
+                    خدمة العملاء:
+                  </div>
+                  <a
+                    href="tel:+966562283774"
+                    onClick={() => {
+                      // Google Ads conversion tracking for customer service calls
+                      if (typeof window !== "undefined" && window.gtag) {
+                        window.gtag("event", "conversion", {
+                          send_to: "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB",
+                        });
+                      }
+                    }}
+                    className="text-gray-300 hover:text-emerald-400 transition-colors font-medium"
+                  >
                     056-228-3774
                   </a>
-                  <div id="call_button" className="text-sm text-amber-400 mt-3 mb-1">الشكاوي:</div>
-                  <a href="tel:0544200405" className="text-gray-300 hover:text-amber-400 transition-colors font-medium">
+                  <div
+                    id="call_button"
+                    className="text-sm text-amber-400 mt-3 mb-1"
+                  >
+                    الشكاوي:
+                  </div>
+                  <a
+                    href="tel:0544200405"
+                    onClick={() => {
+                      // Google Ads conversion tracking for customer service calls
+                      if (typeof window !== "undefined" && window.gtag) {
+                        window.gtag("event", "conversion", {
+                          send_to: "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB",
+                        });
+                      }
+                    }}
+                    className="text-gray-300 hover:text-amber-400 transition-colors font-medium"
+                  >
                     054-420-0405
                   </a>
                 </div>
               </div>
-              
+
               <div className="flex items-center space-x-3 space-x-reverse p-3 rounded-lg bg-gray-800/50 border border-gray-700/50 hover:border-emerald-500/50 transition-all duration-300">
                 <Mail className="w-5 h-5 text-emerald-400" />
-                <a href="mailto:amanlilnagl@gmail.com" className="text-gray-300 hover:text-emerald-400 transition-colors">
+                <a
+                  href="mailto:amanlilnagl@gmail.com"
+                  className="text-gray-300 hover:text-emerald-400 transition-colors"
+                >
                   amanlilnagl@gmail.com
                 </a>
               </div>
-              
+
               <div className="flex items-center space-x-3 space-x-reverse p-3 rounded-lg bg-gray-800/50 border border-gray-700/50">
                 <MapPin className="w-5 h-5 text-emerald-400" />
                 <span className="text-gray-300">الرياض، السعودية</span>
@@ -125,28 +173,36 @@ const Footer = () => {
 
               {/* Social Links */}
               <div className="flex space-x-2 space-x-reverse">
-                <a 
-                  href="https://github.com/Osamaosy" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://github.com/Osamaosy"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group p-2 rounded-lg bg-gray-800 border border-gray-600 hover:border-gray-400 transition-all duration-300 hover:scale-110"
                 >
                   <Github className="w-4 h-4 text-gray-300 group-hover:text-white transition-colors" />
                 </a>
-                
-                <a 
-                  href="https://www.linkedin.com/in/osama-rezk" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+
+                <a
+                  href="https://www.linkedin.com/in/osama-rezk"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group p-2 rounded-lg bg-blue-600 border border-blue-500 hover:border-blue-400 transition-all duration-300 hover:scale-110"
                 >
                   <Linkedin className="w-4 h-4 text-white group-hover:text-blue-100 transition-colors" />
                 </a>
-                
-                <a 
-                  href="https://wa.me/201277122289" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+
+                <a
+                  href="https://wa.me/201277122289"
+                  onClick={() => {
+                    // Google Ads conversion tracking
+                    if (typeof window !== "undefined" && window.gtag) {
+                      window.gtag("event", "conversion", {
+                        send_to: "AW-17595622131/_PhUCL61g6MbEPPFn8ZB", // لزر الواتساب
+                      });
+                    }
+                  }}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group p-2 rounded-lg bg-green-600 border border-green-500 hover:border-green-400 transition-all duration-300 hover:scale-110"
                 >
                   <MessageCircle className="w-4 h-4 text-white group-hover:text-green-100 transition-colors" />
@@ -156,7 +212,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Decorative Elements */}
       <div className="absolute bottom-0 left-0 w-40 h-40 bg-emerald-600/10 rounded-full blur-3xl"></div>
       <div className="absolute top-0 right-0 w-60 h-60 bg-green-600/10 rounded-full blur-3xl"></div>

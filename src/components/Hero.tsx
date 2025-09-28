@@ -46,6 +46,14 @@ const Hero = () => {
               <a
                 id="call_button"
                 href="tel:+966562283774"
+                onClick={() => {
+                  // Google Ads conversion tracking
+                  if (typeof window !== "undefined" && window.gtag) {
+                    window.gtag("event", "conversion", {
+                      send_to: "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB", // لزر الاتصال
+                    });
+                  }
+                }}
                 className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 space-x-reverse"
               >
                 <Phone className="w-5 h-5" />
@@ -55,6 +63,14 @@ const Hero = () => {
               <a
                 id="call_button"
                 href="tel:+966562283774"
+                onClick={() => {
+                  // Google Ads conversion tracking
+                  if (typeof window !== "undefined" && window.gtag) {
+                    window.gtag("event", "conversion", {
+                      send_to: "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB", // لزر الاتصال
+                    });
+                  }
+                }}
                 className="border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 text-center flex items-center justify-center space-x-2 space-x-reverse"
               >
                 <Phone className="w-5 h-5" />
@@ -64,6 +80,14 @@ const Hero = () => {
               <a
                 id="whatsapp_button"
                 href="https://wa.me/+966562283774"
+                onClick={() => {
+                  // Google Ads conversion tracking
+                  if (typeof window !== "undefined" && window.gtag) {
+                    window.gtag("event", "conversion", {
+                      send_to: "AW-17595622131/_PhUCL61g6MbEPPFn8ZB", // لزر الواتساب
+                    });
+                  }
+                }}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 space-x-reverse"
