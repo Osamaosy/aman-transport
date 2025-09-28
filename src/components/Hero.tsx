@@ -1,5 +1,25 @@
 import { Phone, ArrowDown } from "lucide-react";
 
+const gtag_report_conversion = (url: string, conversionId: string): boolean => {
+  try {
+    const callback = function (): void {
+      if (typeof url !== "undefined") {
+        window.location.href = url;
+      }
+    };
+
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "conversion", {
+        send_to: conversionId,
+        event_callback: callback,
+      });
+    }
+  } catch (error) {
+    console.error("خطأ في تتبع التحويل:", error);
+  }
+  return false;
+};
+
 const Hero = () => {
   return (
     <section
@@ -46,13 +66,12 @@ const Hero = () => {
               <a
                 id="call_button"
                 href="tel:+966562283774"
-                onClick={() => {
-                  // Google Ads conversion tracking
-                  if (typeof window !== "undefined" && window.gtag) {
-                    window.gtag("event", "conversion", {
-                      send_to: "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB", // لزر الاتصال
-                    });
-                  }
+                onClick={(e) => {
+                  e.preventDefault();
+                  gtag_report_conversion(
+                    "tel:+966562283774",
+                    "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB"
+                  );
                 }}
                 className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 space-x-reverse"
               >
@@ -61,15 +80,14 @@ const Hero = () => {
               </a>
 
               <a
-                id="call_button"
+                id="call_button_1"
                 href="tel:+966562283774"
-                onClick={() => {
-                  // Google Ads conversion tracking
-                  if (typeof window !== "undefined" && window.gtag) {
-                    window.gtag("event", "conversion", {
-                      send_to: "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB", // لزر الاتصال
-                    });
-                  }
+                onClick={(e) => {
+                  e.preventDefault();
+                  gtag_report_conversion(
+                    "tel:+966562283774",
+                    "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB"
+                  );
                 }}
                 className="border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 text-center flex items-center justify-center space-x-2 space-x-reverse"
               >
@@ -80,13 +98,12 @@ const Hero = () => {
               <a
                 id="whatsapp_button"
                 href="https://wa.me/+966562283774"
-                onClick={() => {
-                  // Google Ads conversion tracking
-                  if (typeof window !== "undefined" && window.gtag) {
-                    window.gtag("event", "conversion", {
-                      send_to: "AW-17595622131/_PhUCL61g6MbEPPFn8ZB", // لزر الواتساب
-                    });
-                  }
+                onClick={(e) => {
+                  e.preventDefault();
+                  gtag_report_conversion(
+                    "https://wa.me/+966562283774",
+                    "AW-17595622131/_PhUCL61g6MbEPPFn8ZB"
+                  );
                 }}
                 target="_blank"
                 rel="noopener noreferrer"

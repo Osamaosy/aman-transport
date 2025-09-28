@@ -1,5 +1,25 @@
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
+const gtag_report_conversion = (url: string, conversionId: string): boolean => {
+  try {
+    const callback = function (): void {
+      if (typeof url !== "undefined") {
+        window.location.href = url;
+      }
+    };
+
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "conversion", {
+        send_to: conversionId,
+        event_callback: callback,
+      });
+    }
+  } catch (error) {
+    console.error("خطأ في تتبع التحويل:", error);
+  }
+  return false;
+};
+
 declare global {
   interface Window {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -83,15 +103,14 @@ const Contact = () => {
                   <div key={detailIndex}>
                     {info.type === "phone" ? (
                       <a
-                        id="call_button"
+                        id="call_button_5"
                         href={`tel:${detail}`}
-                        onClick={() => {
-                          // Google Ads conversion tracking for phone calls
-                          if (typeof window !== "undefined" && window.gtag) {
-                            window.gtag("event", "conversion", {
-                              send_to: "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB",
-                            });
-                          }
+                        onClick={(e) => {
+                          e.preventDefault();
+                          gtag_report_conversion(
+                            "tel:+966562283774",
+                            "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB"
+                          );
                         }}
                         className={`font-bold transition-colors ${
                           info.title.includes("الشكاوي")
@@ -130,15 +149,14 @@ const Contact = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                id="call_button"
+                id="call_button_6"
                 href="tel:+966562283774"
-                onClick={() => {
-                  // Google Ads conversion tracking for phone calls
-                  if (typeof window !== "undefined" && window.gtag) {
-                    window.gtag("event", "conversion", {
-                      send_to: "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB",
-                    });
-                  }
+                onClick={(e) => {
+                  e.preventDefault();
+                  gtag_report_conversion(
+                    "tel:+966562283774",
+                    "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB"
+                  );
                 }}
                 className="bg-white text-emerald-800 hover:bg-gray-100 px-8 py-4 rounded-xl font-black text-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center space-x-2 space-x-reverse"
               >
@@ -147,17 +165,16 @@ const Contact = () => {
               </a>
 
               <a
-                id="whatsapp_button"
+                id="whatsapp_button_2"
                 href="https://wa.me/966562283774"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => {
-                  // Google Ads conversion tracking for WhatsApp
-                  if (typeof window !== "undefined" && window.gtag) {
-                    window.gtag("event", "conversion", {
-                      send_to: "AW-17595622131/_PhUCL61g6MbEPPFn8ZB",
-                    });
-                  }
+                onClick={(e) => {
+                  e.preventDefault();
+                  gtag_report_conversion(
+                    "https://wa.me/+966562283774",
+                    "AW-17595622131/_PhUCL61g6MbEPPFn8ZB"
+                  );
                 }}
                 className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-black text-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center space-x-2 space-x-reverse"
               >

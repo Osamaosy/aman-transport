@@ -1,5 +1,25 @@
 import { Shield, Zap, Users, Target, Wrench, Wind, Phone } from "lucide-react";
 
+const gtag_report_conversion = (url: string, conversionId: string): boolean => {
+  try {
+    const callback = function (): void {
+      if (typeof url !== "undefined") {
+        window.location.href = url;
+      }
+    };
+
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "conversion", {
+        send_to: conversionId,
+        event_callback: callback,
+      });
+    }
+  } catch (error) {
+    console.error("خطأ في تتبع التحويل:", error);
+  }
+  return false;
+};
+
 const Services = () => {
   const services = [
     {
@@ -88,15 +108,14 @@ const Services = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-2xl mx-auto">
               <a
-                id="call_button"
+                id="call_button_3"
                 href="tel:+966562283774"
-                onClick={() => {
-                  // Google Ads conversion tracking
-                  if (typeof window !== "undefined" && window.gtag) {
-                    window.gtag("event", "conversion", {
-                      send_to: "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB", // لزر الاتصال
-                    });
-                  }
+                onClick={(e) => {
+                  e.preventDefault();
+                  gtag_report_conversion(
+                    "tel:+966562283774",
+                    "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB"
+                  );
                 }}
                 className="bg-white text-emerald-600 hover:bg-gray-50 px-6 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center justify-center space-x-2 space-x-reverse shadow-sm"
               >
@@ -105,15 +124,14 @@ const Services = () => {
               </a>
 
               <a
-                id="whatsapp_button"
+                id="whatsapp_button_1"
                 href="https://wa.me/+966562283774"
-                onClick={() => {
-                  // Google Ads conversion tracking
-                  if (typeof window !== "undefined" && window.gtag) {
-                    window.gtag("event", "conversion", {
-                      send_to: "AW-17595622131/_PhUCL61g6MbEPPFn8ZB", // لزر الواتساب
-                    });
-                  }
+                onClick={(e) => {
+                  e.preventDefault();
+                  gtag_report_conversion(
+                    "https://wa.me/+966562283774",
+                    "AW-17595622131/_PhUCL61g6MbEPPFn8ZB"
+                  );
                 }}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -130,15 +148,14 @@ const Services = () => {
               </a>
 
               <a
-                id="call_button"
+                id="call_button_2"
                 href="tel:0544200405"
-                onClick={() => {
-                  // Google Ads conversion tracking
-                  if (typeof window !== "undefined" && window.gtag) {
-                    window.gtag("event", "conversion", {
-                      send_to: "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB", // لزر الاتصال
-                    });
-                  }
+                onClick={(e) => {
+                  e.preventDefault();
+                  gtag_report_conversion(
+                    "tel:+966562283774",
+                    "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB"
+                  );
                 }}
                 className="bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center justify-center space-x-2 space-x-reverse shadow-sm"
               >

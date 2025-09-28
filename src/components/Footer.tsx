@@ -10,6 +10,26 @@ import {
   Sparkles,
 } from "lucide-react";
 
+const gtag_report_conversion = (url: string, conversionId: string): boolean => {
+  try {
+    const callback = function (): void {
+      if (typeof url !== "undefined") {
+        window.location.href = url;
+      }
+    };
+
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "conversion", {
+        send_to: conversionId,
+        event_callback: callback,
+      });
+    }
+  } catch (error) {
+    console.error("خطأ في تتبع التحويل:", error);
+  }
+  return false;
+};
+
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-emerald-900 to-gray-900 text-white relative overflow-hidden">
@@ -86,38 +106,39 @@ const Footer = () => {
               <div className="flex items-start space-x-3 space-x-reverse p-3 rounded-lg bg-gray-800/50 border border-gray-700/50 hover:border-emerald-500/50 transition-all duration-300">
                 <Phone className="w-5 h-5 text-emerald-400 mt-1 flex-shrink-0" />
                 <div>
-                  <div id="call_button" className="text-sm text-gray-400 mb-1">
+                  <div
+                    id="call_button_7"
+                    className="text-sm text-gray-400 mb-1"
+                  >
                     خدمة العملاء:
                   </div>
                   <a
                     href="tel:+966562283774"
-                    onClick={() => {
-                      // Google Ads conversion tracking for customer service calls
-                      if (typeof window !== "undefined" && window.gtag) {
-                        window.gtag("event", "conversion", {
-                          send_to: "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB",
-                        });
-                      }
+                    onClick={(e) => {
+                      e.preventDefault();
+                      gtag_report_conversion(
+                        "tel:+966562283774",
+                        "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB"
+                      );
                     }}
                     className="text-gray-300 hover:text-emerald-400 transition-colors font-medium"
                   >
                     056-228-3774
                   </a>
                   <div
-                    id="call_button"
+                    id="call_button_8"
                     className="text-sm text-amber-400 mt-3 mb-1"
                   >
                     الشكاوي:
                   </div>
                   <a
                     href="tel:0544200405"
-                    onClick={() => {
-                      // Google Ads conversion tracking for customer service calls
-                      if (typeof window !== "undefined" && window.gtag) {
-                        window.gtag("event", "conversion", {
-                          send_to: "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB",
-                        });
-                      }
+                    onClick={(e) => {
+                      e.preventDefault();
+                      gtag_report_conversion(
+                        "tel:+966562283774",
+                        "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB"
+                      );
                     }}
                     className="text-gray-300 hover:text-amber-400 transition-colors font-medium"
                   >
@@ -193,14 +214,6 @@ const Footer = () => {
 
                 <a
                   href="https://wa.me/201277122289"
-                  onClick={() => {
-                    // Google Ads conversion tracking
-                    if (typeof window !== "undefined" && window.gtag) {
-                      window.gtag("event", "conversion", {
-                        send_to: "AW-17595622131/_PhUCL61g6MbEPPFn8ZB", // لزر الواتساب
-                      });
-                    }
-                  }}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group p-2 rounded-lg bg-green-600 border border-green-500 hover:border-green-400 transition-all duration-300 hover:scale-110"

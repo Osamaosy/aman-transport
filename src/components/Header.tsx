@@ -1,6 +1,26 @@
 import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 
+const gtag_report_conversion = (url: string, conversionId: string): boolean => {
+  try {
+    const callback = function (): void {
+      if (typeof url !== "undefined") {
+        window.location.href = url;
+      }
+    };
+
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "conversion", {
+        send_to: conversionId,
+        event_callback: callback,
+      });
+    }
+  } catch (error) {
+    console.error("خطأ في تتبع التحويل:", error);
+  }
+  return false;
+};
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -69,15 +89,14 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-2 space-x-reverse">
             <Phone className="w-5 h-5 text-emerald-600" />
             <a
-              id="call_button"
+              id="call_button_4"
               href="tel:+966562283774"
-              onClick={() => {
-                // Google Ads conversion tracking
-                if (typeof window !== "undefined" && window.gtag) {
-                  window.gtag("event", "conversion", {
-                    send_to: "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB", // لزر الاتصال
-                  });
-                }
+              onClick={(e) => {
+                e.preventDefault();
+                gtag_report_conversion(
+                  "tel:+966562283774",
+                  "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB"
+                );
               }}
               className="text-emerald-600 font-semibold hover:text-emerald-800 transition-colors"
             >
@@ -136,13 +155,12 @@ const Header = () => {
                 <Phone className="w-5 h-5 text-emerald-600" />
                 <a
                   href="tel:+966562283774"
-                  onClick={() => {
-                    // Google Ads conversion tracking
-                    if (typeof window !== "undefined" && window.gtag) {
-                      window.gtag("event", "conversion", {
-                        send_to: "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB", // لزر الاتصال
-                      });
-                    }
+                  onClick={(e) => {
+                    e.preventDefault();
+                    gtag_report_conversion(
+                      "tel:+966562283774",
+                      "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB"
+                    );
                   }}
                   className="text-emerald-600 font-semibold"
                 >
