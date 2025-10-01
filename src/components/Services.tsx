@@ -1,24 +1,7 @@
 import { Shield, Zap, Users, Target, Wrench, Wind, Phone } from "lucide-react";
+import { gtagReportConversion, CONVERSION_IDS } from "../utils/gtag";
 
-const gtag_report_conversion = (url: string, conversionId: string): boolean => {
-  try {
-    const callback = function (): void {
-      if (typeof url !== "undefined") {
-        window.location.href = url;
-      }
-    };
 
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", "conversion", {
-        send_to: conversionId,
-        event_callback: callback,
-      });
-    }
-  } catch (error) {
-    console.error("خطأ في تتبع التحويل:", error);
-  }
-  return false;
-};
 
 const Services = () => {
   const services = [
@@ -112,9 +95,9 @@ const Services = () => {
                 href="tel:+966562283774"
                 onClick={(e) => {
                   e.preventDefault();
-                  gtag_report_conversion(
+                  gtagReportConversion(
                     "tel:+966562283774",
-                    "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB"
+                    CONVERSION_IDS.PHONE_CALL
                   );
                 }}
                 className="bg-white text-emerald-600 hover:bg-gray-50 px-6 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center justify-center space-x-2 space-x-reverse shadow-sm"
@@ -128,9 +111,9 @@ const Services = () => {
                 href="https://wa.me/+966562283774"
                 onClick={(e) => {
                   e.preventDefault();
-                  gtag_report_conversion(
+                  gtagReportConversion(
                     "https://wa.me/+966562283774",
-                    "AW-17595622131/_PhUCL61g6MbEPPFn8ZB"
+                    CONVERSION_IDS.WHATSAPP
                   );
                 }}
                 target="_blank"
@@ -152,9 +135,9 @@ const Services = () => {
                 href="tel:0544200405"
                 onClick={(e) => {
                   e.preventDefault();
-                  gtag_report_conversion(
-                    "tel:+966562283774",
-                    "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB"
+                  gtagReportConversion(
+                    "tel:+966544200405",
+                    CONVERSION_IDS.PHONE_CALL
                   );
                 }}
                 className="bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center justify-center space-x-2 space-x-reverse shadow-sm"

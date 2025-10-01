@@ -1,24 +1,5 @@
 import { Phone, ArrowDown } from "lucide-react";
-
-const gtag_report_conversion = (url: string, conversionId: string): boolean => {
-  try {
-    const callback = function (): void {
-      if (typeof url !== "undefined") {
-        window.location.href = url;
-      }
-    };
-
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", "conversion", {
-        send_to: conversionId,
-        event_callback: callback,
-      });
-    }
-  } catch (error) {
-    console.error("خطأ في تتبع التحويل:", error);
-  }
-  return false;
-};
+import { gtagReportConversion, CONVERSION_IDS } from "../utils/gtag";
 
 const Hero = () => {
   return (
@@ -68,9 +49,9 @@ const Hero = () => {
                 href="tel:+966562283774"
                 onClick={(e) => {
                   e.preventDefault();
-                  gtag_report_conversion(
+                  gtagReportConversion(
                     "tel:+966562283774",
-                    "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB"
+                    CONVERSION_IDS.PHONE_CALL
                   );
                 }}
                 className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 space-x-reverse"
@@ -78,15 +59,15 @@ const Hero = () => {
                 <Phone className="w-5 h-5" />
                 <span>اتصل الآن</span>
               </a>
-
+              
               <a
                 id="call_button_1"
                 href="tel:+966562283774"
                 onClick={(e) => {
                   e.preventDefault();
-                  gtag_report_conversion(
+                  gtagReportConversion(
                     "tel:+966562283774",
-                    "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB"
+                    CONVERSION_IDS.PHONE_CALL
                   );
                 }}
                 className="border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 text-center flex items-center justify-center space-x-2 space-x-reverse"
@@ -100,9 +81,9 @@ const Hero = () => {
                 href="https://wa.me/+966562283774"
                 onClick={(e) => {
                   e.preventDefault();
-                  gtag_report_conversion(
+                  gtagReportConversion(
                     "https://wa.me/+966562283774",
-                    "AW-17595622131/_PhUCL61g6MbEPPFn8ZB"
+                    CONVERSION_IDS.WHATSAPP
                   );
                 }}
                 target="_blank"

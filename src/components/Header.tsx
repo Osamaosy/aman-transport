@@ -1,25 +1,6 @@
 import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
-
-const gtag_report_conversion = (url: string, conversionId: string): boolean => {
-  try {
-    const callback = function (): void {
-      if (typeof url !== "undefined") {
-        window.location.href = url;
-      }
-    };
-
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", "conversion", {
-        send_to: conversionId,
-        event_callback: callback,
-      });
-    }
-  } catch (error) {
-    console.error("خطأ في تتبع التحويل:", error);
-  }
-  return false;
-};
+import { gtagReportConversion, CONVERSION_IDS } from "../utils/gtag";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -93,9 +74,9 @@ const Header = () => {
               href="tel:+966562283774"
               onClick={(e) => {
                 e.preventDefault();
-                gtag_report_conversion(
+                gtagReportConversion(
                   "tel:+966562283774",
-                  "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB"
+                  CONVERSION_IDS.PHONE_CALL
                 );
               }}
               className="text-emerald-600 font-semibold hover:text-emerald-800 transition-colors"
@@ -157,9 +138,9 @@ const Header = () => {
                   href="tel:+966562283774"
                   onClick={(e) => {
                     e.preventDefault();
-                    gtag_report_conversion(
+                    gtagReportConversion(
                       "tel:+966562283774",
-                      "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB"
+                      CONVERSION_IDS.PHONE_CALL
                     );
                   }}
                   className="text-emerald-600 font-semibold"

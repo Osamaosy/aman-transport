@@ -9,26 +9,7 @@ import {
   Code,
   Sparkles,
 } from "lucide-react";
-
-const gtag_report_conversion = (url: string, conversionId: string): boolean => {
-  try {
-    const callback = function (): void {
-      if (typeof url !== "undefined") {
-        window.location.href = url;
-      }
-    };
-
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", "conversion", {
-        send_to: conversionId,
-        event_callback: callback,
-      });
-    }
-  } catch (error) {
-    console.error("خطأ في تتبع التحويل:", error);
-  }
-  return false;
-};
+import { gtagReportConversion, CONVERSION_IDS } from "../utils/gtag";
 
 const Footer = () => {
   return (
@@ -106,19 +87,17 @@ const Footer = () => {
               <div className="flex items-start space-x-3 space-x-reverse p-3 rounded-lg bg-gray-800/50 border border-gray-700/50 hover:border-emerald-500/50 transition-all duration-300">
                 <Phone className="w-5 h-5 text-emerald-400 mt-1 flex-shrink-0" />
                 <div>
-                  <div
-                    id="call_button_7"
-                    className="text-sm text-gray-400 mb-1"
-                  >
+                  <div className="text-sm text-gray-400 mb-1">
                     خدمة العملاء:
                   </div>
                   <a
+                    id="call_button_7"
                     href="tel:+966562283774"
                     onClick={(e) => {
                       e.preventDefault();
-                      gtag_report_conversion(
+                      gtagReportConversion(
                         "tel:+966562283774",
-                        "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB"
+                        CONVERSION_IDS.PHONE_CALL
                       );
                     }}
                     className="text-gray-300 hover:text-emerald-400 transition-colors font-medium"
@@ -135,9 +114,9 @@ const Footer = () => {
                     href="tel:0544200405"
                     onClick={(e) => {
                       e.preventDefault();
-                      gtag_report_conversion(
-                        "tel:+966562283774",
-                        "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB"
+                      gtagReportConversion(
+                        "tel:+966544200405",
+                        CONVERSION_IDS.PHONE_CALL
                       );
                     }}
                     className="text-gray-300 hover:text-amber-400 transition-colors font-medium"

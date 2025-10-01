@@ -1,31 +1,5 @@
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
-
-const gtag_report_conversion = (url: string, conversionId: string): boolean => {
-  try {
-    const callback = function (): void {
-      if (typeof url !== "undefined") {
-        window.location.href = url;
-      }
-    };
-
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", "conversion", {
-        send_to: conversionId,
-        event_callback: callback,
-      });
-    }
-  } catch (error) {
-    console.error("خطأ في تتبع التحويل:", error);
-  }
-  return false;
-};
-
-declare global {
-  interface Window {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    gtag: (...args: any[]) => void;
-  }
-}
+import { gtagReportConversion, CONVERSION_IDS } from "../utils/gtag";
 
 const Contact = () => {
   const contactInfo = [
@@ -107,9 +81,9 @@ const Contact = () => {
                         href={`tel:${detail}`}
                         onClick={(e) => {
                           e.preventDefault();
-                          gtag_report_conversion(
-                            "tel:+966562283774",
-                            "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB"
+                          gtagReportConversion(
+                            "tel:+966544200405",
+                            CONVERSION_IDS.PHONE_CALL
                           );
                         }}
                         className={`font-bold transition-colors ${
@@ -153,9 +127,9 @@ const Contact = () => {
                 href="tel:+966562283774"
                 onClick={(e) => {
                   e.preventDefault();
-                  gtag_report_conversion(
+                  gtagReportConversion(
                     "tel:+966562283774",
-                    "AW-17595622131/4Z1YCM6pkKMbEPPFn8ZB"
+                    CONVERSION_IDS.PHONE_CALL
                   );
                 }}
                 className="bg-white text-emerald-800 hover:bg-gray-100 px-8 py-4 rounded-xl font-black text-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center space-x-2 space-x-reverse"
@@ -171,9 +145,9 @@ const Contact = () => {
                 rel="noopener noreferrer"
                 onClick={(e) => {
                   e.preventDefault();
-                  gtag_report_conversion(
+                  gtagReportConversion(
                     "https://wa.me/+966562283774",
-                    "AW-17595622131/_PhUCL61g6MbEPPFn8ZB"
+                    CONVERSION_IDS.WHATSAPP
                   );
                 }}
                 className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-black text-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center space-x-2 space-x-reverse"
