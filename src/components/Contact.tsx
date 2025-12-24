@@ -2,17 +2,18 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { gtagReportConversion, CONVERSION_IDS } from "../utils/gtag";
 
 const Contact = () => {
+  // 1. تحديث البيانات لتشمل كود الدولة الصحيح +966 وحذف الصفر الأول
   const contactInfo = [
     {
       icon: <Phone className="w-6 h-6 text-emerald-600" />,
       title: "خدمة العملاء",
-      details: ["0562283774"],
+      details: ["+966562283774"], // تم التعديل للصيغة الدولية
       type: "phone",
     },
     {
       icon: <Phone className="w-6 h-6 text-amber-600" />,
       title: "الشكاوي والاقتراحات",
-      details: ["0544200405"],
+      details: ["+966544200405"], // تم التعديل للصيغة الدولية
       type: "phone",
     },
     {
@@ -41,6 +42,7 @@ const Contact = () => {
       className="py-20 bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-900"
     >
       <div className="container mx-auto px-4">
+        {/* ... (نفس الجزء العلوي للنصوص) ... */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-black text-white mb-6">
             تواصل مع الأمان للنقل
@@ -77,20 +79,21 @@ const Contact = () => {
                   <div key={detailIndex}>
                     {info.type === "phone" ? (
                       <a
-                        id="call_button_5"
+                        id={`call_button_${index}`} // Unique ID
                         href={`tel:${detail}`}
-                        onClick={(e) => {
-                          e.preventDefault();
+                        onClick={() => {
+                          // 2. تم حذف e.preventDefault() لكي يعمل الاتصال
                           gtagReportConversion(
-                            "tel:+966544200405",
+                            `tel:${detail}`,
                             CONVERSION_IDS.PHONE_CALL
                           );
                         }}
-                        className={`font-bold transition-colors ${
+                        className={`font-bold transition-colors dir-ltr ${
                           info.title.includes("الشكاوي")
                             ? "text-amber-600 hover:text-amber-800"
                             : "text-emerald-600 hover:text-emerald-800"
                         }`}
+                        style={{ direction: 'ltr' }} // لعرض الرقم بشكل صحيح
                       >
                         {detail}
                       </a>
@@ -114,6 +117,7 @@ const Contact = () => {
         {/* Call to Action */}
         <div className="text-center">
           <div className="bg-white/10 backdrop-blur-sm p-8 rounded-3xl shadow-2xl max-w-4xl mx-auto border border-white/20">
+            {/* ... (نفس العناوين) ... */}
             <h3 className="text-3xl font-black text-white mb-4">
               الأمان للنقل في خدمتك
             </h3>
@@ -125,8 +129,8 @@ const Contact = () => {
               <a
                 id="call_button_6"
                 href="tel:+966562283774"
-                onClick={(e) => {
-                  e.preventDefault();
+                onClick={() => {
+                   // تم حذف e.preventDefault()
                   gtagReportConversion(
                     "tel:+966562283774",
                     CONVERSION_IDS.PHONE_CALL
@@ -135,7 +139,7 @@ const Contact = () => {
                 className="bg-white text-emerald-800 hover:bg-gray-100 px-8 py-4 rounded-xl font-black text-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center space-x-2 space-x-reverse"
               >
                 <Phone className="w-5 h-5" />
-                <span>اتصل الآن - 0562283774</span>
+                <span dir="ltr">+966 56 228 3774</span>
               </a>
 
               <a
@@ -143,8 +147,8 @@ const Contact = () => {
                 href="https://wa.me/966562283774"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={(e) => {
-                  e.preventDefault();
+                onClick={() => {
+                   // الواتساب يفتح في تاب جديد فلا مشكلة كبيرة هنا، ولكن الأفضل إزالتها أيضاً أو تركها حسب الرغبة في التتبع
                   gtagReportConversion(
                     "https://wa.me/+966562283774",
                     CONVERSION_IDS.WHATSAPP
@@ -164,6 +168,7 @@ const Contact = () => {
             </div>
             {/* Google Maps Embed */}
             <div className="mt-8">
+              {/* 3. تم وضع رابط خريطة صحيح (للرياض بشكل عام) - يجب استبداله برابط شركتك */}
               <iframe
                 src="https://www.google.com/maps?q=24.7136,46.6753&z=13&output=embed"
                 width="100%"
