@@ -66,18 +66,14 @@ const Header = () => {
             </button>
           </div>
 
-          {/* Phone Number */}
+          {/* Phone Number - Desktop */}
           <div className="hidden md:flex items-center space-x-2 space-x-reverse">
             <Phone className="w-5 h-5 text-emerald-600" />
             <a
               id="call_button_4"
               href="tel:+966562283774"
-              onClick={(e) => {
-                e.preventDefault();
-                gtagReportConversion(
-                  "tel:+966562283774",
-                  CONVERSION_IDS.PHONE_CALL
-                );
+              onClick={() => {
+                gtagReportConversion(CONVERSION_IDS.PHONE_CALL);
               }}
               className="text-emerald-600 font-semibold hover:text-emerald-800 transition-colors"
             >
@@ -134,14 +130,12 @@ const Header = () => {
               </button>
               <div className="flex items-center justify-center space-x-2 space-x-reverse pt-2">
                 <Phone className="w-5 h-5 text-emerald-600" />
+                {/* تم تصحيح هذا الجزء في القائمة المنسدلة */}
                 <a
                   href="tel:+966562283774"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    gtagReportConversion(
-                      "tel:+966562283774",
-                      CONVERSION_IDS.PHONE_CALL
-                    );
+                  onClick={() => {
+                     // تم إزالة e.preventDefault وتمرير المعامل الصحيح فقط
+                    gtagReportConversion(CONVERSION_IDS.PHONE_CALL);
                   }}
                   className="text-emerald-600 font-semibold"
                 >

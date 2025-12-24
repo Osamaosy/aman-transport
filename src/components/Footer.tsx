@@ -93,12 +93,8 @@ const Footer = () => {
                   <a
                     id="call_button_7"
                     href="tel:+966562283774"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      gtagReportConversion(
-                        "tel:+966562283774",
-                        CONVERSION_IDS.PHONE_CALL
-                      );
+                    onClick={() => {
+                      gtagReportConversion(CONVERSION_IDS.PHONE_CALL);
                     }}
                     className="text-gray-300 hover:text-emerald-400 transition-colors font-medium"
                   >
@@ -110,14 +106,12 @@ const Footer = () => {
                   >
                     الشكاوي:
                   </div>
+                  {/* تم تصحيح هذا الزر */}
                   <a
-                    href="tel:0544200405"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      gtagReportConversion(
-                        "tel:+966544200405",
-                        CONVERSION_IDS.PHONE_CALL
-                      );
+                    href="tel:+966544200405" // تم تعديل الرقم للصيغة الدولية
+                    onClick={() => {
+                      // تم إزالة e.preventDefault وتمرير المعامل الصحيح فقط
+                      gtagReportConversion(CONVERSION_IDS.PHONE_CALL);
                     }}
                     className="text-gray-300 hover:text-amber-400 transition-colors font-medium"
                   >

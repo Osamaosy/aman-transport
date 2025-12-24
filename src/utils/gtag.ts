@@ -1,3 +1,5 @@
+// src/utils/gtag.ts
+
 // TypeScript interfaces for gtag
 interface GtagConfigParams {
     [key: string]: string | number | boolean | undefined;
@@ -28,37 +30,22 @@ export const CONVERSION_IDS = {
 
 /**
  * تتبع التحويل في Google Ads
- * @param url - الرابط المراد التوجيه إليه
- * @param conversionId - معرف التحويل من Google Ads
- * @returns false دائماً لمنع السلوك الافتراضي
+ * نقوم فقط بإرسال الحدث ولا نتدخل في عملية فتح الرابط
  */
-export const gtagReportConversion = (url: string, conversionId: string): boolean => {
+export const gtagReportConversion = (conversionId: string): void => {
     try {
         if (typeof window !== "undefined" && window.gtag) {
-            // سجل التحويل بدون callback
             window.gtag("event", "conversion", {
                 send_to: conversionId,
             });
         }
-
-        // انتقل للرابط مباشرة (بدون انتظار)
-        if (typeof url !== "undefined") {
-            window.location.href = url;
-        }
     } catch (error) {
         console.error("خطأ في تتبع التحويل:", error);
-        // في حالة الخطأ، انتقل للرابط مباشرة
-        if (typeof url !== "undefined") {
-            window.location.href = url;
-        }
     }
-    return false;
 };
 
 /**
  * تتبع حدث مخصص في Google Analytics
- * @param eventName - اسم الحدث
- * @param eventParams - معاملات الحدث
  */
 export const gtagEvent = (eventName: string, eventParams?: GtagEventParams): void => {
     try {
