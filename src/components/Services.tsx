@@ -1,7 +1,5 @@
 import { Shield, Zap, Users, Target, Wrench, Wind, Phone } from "lucide-react";
-import { gtagReportConversion, CONVERSION_IDS } from "../utils/gtag";
-
-
+import { gtagReportConversion, CONVERSION_IDS } from "../utils/gtag"; //
 
 const Services = () => {
   const services = [
@@ -93,12 +91,9 @@ const Services = () => {
               <a
                 id="call_button_3"
                 href="tel:+966562283774"
-                onClick={(e) => {
-                  e.preventDefault();
-                  gtagReportConversion(
-                    "tel:+966562283774",
-                    CONVERSION_IDS.PHONE_CALL
-                  );
+                onClick={() => {
+                  // هنا التصحيح: نمرر المعرف فقط
+                  gtagReportConversion(CONVERSION_IDS.PHONE_CALL); 
                 }}
                 className="bg-white text-emerald-600 hover:bg-gray-50 px-6 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center justify-center space-x-2 space-x-reverse shadow-sm"
               >
@@ -109,12 +104,9 @@ const Services = () => {
               <a
                 id="whatsapp_button_1"
                 href="https://wa.me/+966562283774"
-                onClick={(e) => {
-                  e.preventDefault();
-                  gtagReportConversion(
-                    "https://wa.me/+966562283774",
-                    CONVERSION_IDS.WHATSAPP
-                  );
+                onClick={() => {
+                  // هنا التصحيح: نمرر المعرف فقط
+                  gtagReportConversion(CONVERSION_IDS.WHATSAPP); 
                 }}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -133,12 +125,9 @@ const Services = () => {
               <a
                 id="call_button_2"
                 href="tel:0544200405"
-                onClick={(e) => {
-                  e.preventDefault();
-                  gtagReportConversion(
-                    "tel:+966544200405",
-                    CONVERSION_IDS.PHONE_CALL
-                  );
+                onClick={() => {
+                   // هنا التصحيح: نمرر المعرف فقط
+                  gtagReportConversion(CONVERSION_IDS.PHONE_CALL); 
                 }}
                 className="bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center justify-center space-x-2 space-x-reverse shadow-sm"
               >
