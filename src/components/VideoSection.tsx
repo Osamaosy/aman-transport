@@ -30,21 +30,18 @@ const VideoSection = () => {
                 <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-emerald-500/30 bg-black">
                     <video
                         ref={videoRef}
-                        // الكلاس max-h-[70vh] يضمن أن الفيديو لا يأخذ طول الشاشة بالكامل حتى لو كان طولياً
                         className="w-full h-auto max-h-[70vh] object-contain mx-auto"
                         controls
                         playsInline
                         preload="none"
-                        poster="/images/video-poster.webp" // تأكد من رفع صورة الغلاف بهذا الاسم
+                        poster="/images/video-poster.png" // تأكد من رفع صورة الغلاف بهذا الاسم
                         onPause={() => setIsPlaying(false)}
                         onPlay={() => setIsPlaying(true)}
                     >
-                        {/* تأكد من رفع الفيديو بهذا الاسم داخل مجلد videos في public */}
                         <source src="/videos/montage.mp4" type="video/mp4" />
                         متصفحك لا يدعم تشغيل الفيديو.
                     </video>
 
-                    {/* طبقة زر التشغيل المخصص (تختفي عند التشغيل) */}
                     {!isPlaying && (
                         <div
                             className="absolute inset-0 flex items-center justify-center bg-black/40 cursor-pointer group backdrop-blur-[2px]"
