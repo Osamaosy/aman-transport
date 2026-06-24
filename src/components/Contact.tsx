@@ -6,7 +6,7 @@ const Contact = () => {
     {
       icon: <Phone className="w-6 h-6 text-emerald-600" />,
       title: "خدمة العملاء",
-      details: ["+966562283774"],
+      details: ["+966530627445"],
       type: "phone",
     },
     {
@@ -122,7 +122,7 @@ const Contact = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 id="call_button_6"
-                href="tel:+966562283774"
+                href="tel:+966530627445"
                 onClick={() => {
                   // تصحيح: هذا الجزء كان صحيحاً في كودك (عامل واحد)
                   gtagReportConversion(CONVERSION_IDS.PHONE_CALL);
@@ -130,12 +130,12 @@ const Contact = () => {
                 className="bg-white text-emerald-800 hover:bg-gray-100 px-8 py-4 rounded-xl font-black text-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center space-x-2 space-x-reverse"
               >
                 <Phone className="w-5 h-5" />
-                <span dir="ltr">+966 56 228 3774</span>
+                <span dir="ltr">0530627445</span>
               </a>
 
               <a
                 id="whatsapp_button_2"
-                href="https://wa.me/966562283774"
+                href="https://wa.me/966530627445"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => {

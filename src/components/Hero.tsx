@@ -46,7 +46,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a
                 id="call_button"
-                href="tel:+966562283774"
+                href="tel:+966530627445"
                 onClick={() => {
                   gtagReportConversion(CONVERSION_IDS.PHONE_CALL);
                 }}
@@ -58,19 +58,19 @@ const Hero = () => {
 
               <a
                 id="call_button_1"
-                href="tel:+966562283774"
+                href="tel:+966530627445"
                 onClick={() => {
                   gtagReportConversion(CONVERSION_IDS.PHONE_CALL);
                 }}
                 className="border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 text-center flex items-center justify-center space-x-2 space-x-reverse"
               >
                 <Phone className="w-5 h-5" />
-                <span dir="ltr">+966 56 228 3774</span>
+                <span dir="ltr">0530627445</span>
               </a>
 
               <a
                 id="whatsapp_button"
-                href="https://wa.me/966562283774"
+                href="https://wa.me/966530627445"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => {

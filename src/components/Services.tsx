@@ -90,7 +90,7 @@ const Services = () => {
             <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-2xl mx-auto">
               <a
                 id="call_button_3"
-                href="tel:+966562283774"
+                href="tel:+966530627445"
                 onClick={() => {
                   // هنا التصحيح: نمرر المعرف فقط
                   gtagReportConversion(CONVERSION_IDS.PHONE_CALL); 
@@ -98,12 +98,12 @@ const Services = () => {
                 className="bg-white text-emerald-600 hover:bg-gray-50 px-6 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center justify-center space-x-2 space-x-reverse shadow-sm"
               >
                 <Phone className="w-4 h-4" />
-                <span>056-228-3774</span>
+                <span>0530627445</span>
               </a>
 
               <a
                 id="whatsapp_button_1"
-                href="https://wa.me/+966562283774"
+                href="https://wa.me/+966530627445"
                 onClick={() => {
                   // هنا التصحيح: نمرر المعرف فقط
                   gtagReportConversion(CONVERSION_IDS.WHATSAPP); 

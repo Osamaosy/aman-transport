@@ -71,13 +71,13 @@ const Header = () => {
             <Phone className="w-5 h-5 text-emerald-600" />
             <a
               id="call_button_4"
-              href="tel:+966562283774"
+              href="tel:+966530627445"
               onClick={() => {
                 gtagReportConversion(CONVERSION_IDS.PHONE_CALL);
               }}
               className="text-emerald-600 font-semibold hover:text-emerald-800 transition-colors"
             >
-              056-228-3774
+              0530627445
             </a>
           </div>
 
@@ -132,14 +132,14 @@ const Header = () => {
                 <Phone className="w-5 h-5 text-emerald-600" />
                 {/* تم تصحيح هذا الجزء في القائمة المنسدلة */}
                 <a
-                  href="tel:+966562283774"
+                  href="tel:+966530627445"
                   onClick={() => {
                      // تم إزالة e.preventDefault وتمرير المعامل الصحيح فقط
                     gtagReportConversion(CONVERSION_IDS.PHONE_CALL);
                   }}
                   className="text-emerald-600 font-semibold"
                 >
-                  +966 56 228 3774
+                  0530627445
                 </a>
               </div>
             </div>

@@ -60,10 +60,10 @@ const VideoSection = () => {
                 {/* زر الدعوة لاتخاذ إجراء (CTA) */}
                 <div className="mt-10 text-center">
                     <a
-                        href="tel:+966562283774"
+                        href="tel:+966530627445"
                         className="inline-flex items-center justify-center px-10 py-4 bg-white text-emerald-900 rounded-full font-bold text-xl hover:bg-emerald-50 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                     >
-                        اتصل الآن: 0562283774
+                        اتصل الآن: 0530627445
                     </a>
                 </div>
             </div>

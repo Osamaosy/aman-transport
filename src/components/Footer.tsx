@@ -92,13 +92,13 @@ const Footer = () => {
                   </div>
                   <a
                     id="call_button_7"
-                    href="tel:+966562283774"
+                    href="tel:+966530627445"
                     onClick={() => {
                       gtagReportConversion(CONVERSION_IDS.PHONE_CALL);
                     }}
                     className="text-gray-300 hover:text-emerald-400 transition-colors font-medium"
                   >
-                    056-228-3774
+                    0530627445
                   </a>
                   <div
                     id="call_button_8"
